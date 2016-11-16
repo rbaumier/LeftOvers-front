@@ -34,6 +34,11 @@ angular.module('App', ['ionic', 'restangular'])
       controller: 'MyDealsCtrl'
     })
 
+    .state('dealer', {
+      url: '/dealers/:id',
+      templateUrl: 'views/dealer/dealer.html',
+      controller: 'DealerCtrl'
+    })
 
     .state('about', {
       url: '/about',
@@ -64,7 +69,7 @@ angular.module('App', ['ionic', 'restangular'])
 })
 
 .config(function(RestangularProvider) {
-  RestangularProvider.setBaseUrl('http://localhost:3005/api');
+  RestangularProvider.setBaseUrl('http://leftovers.jlitaize.fr/api');
 })
 
 .factory('APIService', function(Restangular) {
@@ -72,6 +77,9 @@ angular.module('App', ['ionic', 'restangular'])
     dealers: {
       get: function() {
         return Restangular.all('dealers').getList();
+      },
+      getById: function(id) {
+        return Restangular.one('dealers', id).get();
       }
     },
     deals: {

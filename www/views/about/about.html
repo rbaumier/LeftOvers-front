@@ -11,11 +11,11 @@
       <div class="item item-divider about">
           <p>Ils nous font confiance.</p>
       </div>
-      <div ng-repeat="item in dealers" class="item item-text-wrap">
+      <div ng-repeat="dealer in dealers" class="item item-text-wrap">
         <div class="item item-image">
-          <img src={{item.picture}}>
+          <img ng-src={{dealer.picture}}>
         </div>
-        <a class="item brand">{{item.name}}</a>
+        <a class="item brand" ui-sref="dealer({ id: dealer.id})">{{dealer.name}}</a>
       </div>
       <div class="item item-divider">
         <p>Leftovers™</p>
