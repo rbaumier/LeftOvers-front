@@ -1,12 +1,40 @@
-angular.module('App', ['ionic', 'firebase'])
+angular.module('App', ['ionic', 'restangular'])
 
-.config(function ($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.when('/', '/deals');
+
   $stateProvider
-    .state('home', {
-      url: '/',
-      templateUrl: 'views/home/home.html',
-      controller: 'HomeCtrl'
+    .state('dealers', {
+      url: '/dealers',
+      templateUrl: 'views/dealers/dealers.html',
+      controller: 'DealersCtrl'
     })
+
+    .state('preferences', {
+      url: '/preferences',
+      templateUrl: 'views/preferences/preferences.html',
+      controller: 'PreferencesCtrl'
+    })
+
+    .state('deals', {
+      url: '/deals',
+      templateUrl: 'views/deals/deals.html',
+      controller: 'DealsCtrl'
+    })
+
+    .state('newdeal', {
+      url: '/deals/new',
+      templateUrl: 'views/deals/newdeal.html',
+      controller: 'NewDealCtrl'
+    })
+
+    .state('mydeals', {
+      url: '/deals/me',
+      templateUrl: 'views/deals/mydeals.html',
+      controller: 'MyDealsCtrl'
+    })
+
+
     .state('about', {
       url: '/about',
       templateUrl: 'views/about/about.html',
@@ -20,22 +48,50 @@ angular.module('App', ['ionic', 'firebase'])
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
-    if(window.cordova && window.cordova.plugins.Keyboard) {
+    if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
-    if(window.StatusBar) {
+    if (window.StatusBar) {
       StatusBar.styleDefault();
     }
   });
 })
 
-.factory('APIService', function ($) {
-
-})
-
-.controller('NavbarCtrl', function ($scope, $ionicSideMenuDelegate) {
-
-  $scope.openMenu = function () {
+.controller('NavbarCtrl', function($scope, $ionicSideMenuDelegate) {
+  $scope.openMenu = function() {
     $ionicSideMenuDelegate.toggleLeft();
   };
-});
+})
+
+.config(function(RestangularProvider) {
+  RestangularProvider.setBaseUrl('http://localhost:3005');
+})
+
+.factory('APIService', function(Restangular) {
+  return {
+    dealers: {
+      get: function() {
+        return Restangular.all('dealers').getList();
+      }
+    },
+    deals: {
+      get: function() {
+        return Restangular.all('deals').getList();
+      },
+      getByDealerId: function(dealerId) {
+        return Restangular.all('deals').customGET('', { dealer_id: dealerId });
+      },
+      create: function(deal) {
+        return Restangular.all('deals').post(deal);
+      },
+      removeById: function(id) {
+        return Restangular.one('deals', id).remove();
+      }
+    },
+    preferences: {
+      get: function(userId) {
+        return Restangular.all('preferences').customGET('', { user_id: userId });
+      }
+    }
+  };
+})
