@@ -16,3 +16,14 @@
 .white{
   color: #fff;
 }
+
+.toggle{
+  top: 10px;
+  left: 20px;
+  z-index: 1000;
+  color: #eee;
+}
+
+.toggle :hover{
+  color: #fff;
+}
