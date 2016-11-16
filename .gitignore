@@ -4,3 +4,6 @@
 node_modules/
 platforms/
 plugins/
+www/lib
+www/.DS_Store
+.DS_Store

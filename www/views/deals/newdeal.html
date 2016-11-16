@@ -1,0 +1,37 @@
+<ion-view title="Créer une promotion">
+  <ion-content>
+    <div class="list list-inset">
+      <div class="errors">{{ errors }}</div>
+      <label class="item item-input">
+        <input type="text" placeholder="Titre" ng-model="deal.title">
+      </label>
+
+      <label class="item item-input">
+        <input type="text" placeholder="Description" ng-model="deal.description">
+      </label>
+
+      <label class="item item-input">
+        <input type="text" placeholder="Date de début" ng-model="deal.start_date">
+      </label>
+
+      <label class="item item-input">
+        <input type="text" placeholder="Date de fin" ng-model="deal.end_date">
+      </label>
+
+      <label class="item item-input">
+        <input type="text" placeholder="Quantité" ng-model="deal.quantity">
+      </label>
+
+      <label class="item item-input">
+        <input type="text" placeholder="Prix sans promotion" ng-model="deal.full_price">
+      </label>
+
+      <label class="item item-input">
+        <input type="text" placeholder="Promotion" ng-model="deal.promotion">
+      </label>
+    </div>
+    <div class="padding">
+      <button class="button button-block button-positive activated" ng-click="create(deal)">Créer ma promotion</button>
+    </div>
+  </ion-content>
+</ion-view>
