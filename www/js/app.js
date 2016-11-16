@@ -4,6 +4,18 @@ angular.module('App', ['ionic', 'restangular'])
   $urlRouterProvider.when('/', '/deals');
 
   $stateProvider
+    .state('dealers', {
+      url: '/dealers',
+      templateUrl: 'views/dealers/dealers.html',
+      controller: 'DealersCtrl'
+    })
+
+    .state('preferences', {
+      url: '/preferences',
+      templateUrl: 'views/preferences/preferences.html',
+      controller: 'PreferencesCtrl'
+    })
+
     .state('deals', {
       url: '/deals',
       templateUrl: 'views/deals/deals.html',
@@ -73,6 +85,11 @@ angular.module('App', ['ionic', 'restangular'])
       },
       removeById: function(id) {
         return Restangular.one('deals', id).remove();
+      }
+    },
+    preferences: {
+      get: function(userId) {
+        return Restangular.all('preferences').customGET('', { user_id: userId });
       }
     }
   };
