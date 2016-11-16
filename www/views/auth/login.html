@@ -1,0 +1,20 @@
+<ion-view title="Login">
+  <ion-content>
+    <div class="list list-inset">
+      <div class="errors">{{ errors }}</div>
+
+      <label class="item item-input">
+        <input type="text" placeholder="Adresse email" ng-model="user.email">
+      </label>
+
+      <label class="item item-input">
+        <input type="text" placeholder="Password" ng-model="user.email">
+      </label>
+    </div>
+
+    <div class="padding">
+      Pas encore de compte ? <a ui-sref="signup">Créer mon compte</a>
+      <button class="button button-block button-positive activated" ng-click="login(user)">Se connecter</button>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,73 @@
+<ion-view title="Nouveau compte">
+  <ion-tabs class="tabs-positive tabs-icon-top">
+    <ion-tab title="Utilisateur" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline">
+      <ion-content>
+        <div class="list list-inset">
+          <div class="errors">{{ userErrors }}</div>
+
+          <label class="item item-input">
+            <input type="text" placeholder="Adresse email" ng-model="user.email">
+          </label>
+
+          <label class="item item-input">
+            <input type="text" placeholder="Prénom" ng-model="user.firstname">
+          </label>
+          <label class="item item-input">
+            <input type="text" placeholder="Nom" ng-model="user.lastname">
+          </label>
+          <label class="item item-input">
+            <input type="text" placeholder="Email" ng-model="user.email">
+          </label>
+          <label class="item item-input">
+            <input type="password" placeholder="Mot de passe" ng-model="user.password">
+          </label>
+          <label class="item item-input">
+            <input type="text" placeholder="Addresse" ng-model="user.address">
+          </label>
+        </div>
+
+        <div class="padding">
+          <button class="button button-block button-positive activated" ng-click="createUser(user)">Créer mon compte</button>
+        </div>
+
+      </ion-content>
+    </ion-tab>
+
+    <ion-tab title="Revendeur" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline">
+      <ion-content>
+        <div class="list list-inset">
+          <div class="errors">{{ userErrors }}</div>
+
+          <label class="item item-input">
+            <input type="text" placeholder="Adresse email" ng-model="user.email">
+          </label>
+
+          <label class="item item-input">
+            <input type="text" placeholder="Prénom" ng-model="user.firstname">
+          </label>
+          <label class="item item-input">
+            <input type="text" placeholder="Nom" ng-model="user.lastname">
+          </label>
+          <label class="item item-input">
+            <input type="text" placeholder="Email" ng-model="user.email">
+          </label>
+          <label class="item item-input">
+            <input type="password" placeholder="Mot de passe" ng-model="user.password">
+          </label>
+          <label class="item item-input">
+            <input type="text" placeholder="Addresse" ng-model="user.address">
+          </label>
+        </div>
+        <!-- email varchar(255) not null,
+        password char(60) not null,
+        name varchar(255) not null,
+        description text not null,
+        picture varchar(255),
+        address varchar(255),
+        geolocation geography(point, 4326),
+        phone varchar(12) not null, -->
+
+      </ion-content>
+    </ion-tab>
+  </ion-tabs>
+</ion-view>
