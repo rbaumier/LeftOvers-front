@@ -1,0 +1,9 @@
+<ion-view title="Mes promotions">
+  <ion-content>
+    <div ng-repeat="deal in deals">
+      title: {{ deal.title }} <span ng-click="remove(deal)">X</span>
+      <br>
+    </div>
+    <a ui-sref="newdeal">Créer une promotion</a>
+  </ion-content>
+</ion-view>
