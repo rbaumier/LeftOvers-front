@@ -9,7 +9,8 @@ angular.module('App', ['ionic', 'firebase'])
     })
     .state('about', {
       url: '/about',
-      templateUrl: 'views/about/about.html'
+      templateUrl: 'views/about/about.html',
+      controller: 'AboutCtrl'
     });
 
   $urlRouterProvider.otherwise('/');

@@ -1,20 +1,40 @@
 <ion-view title="Leftovers">
-  <ion-content>
-    <div class="bar">
+  <ion-content class="list-card">
+    <div class="item item-image about">
       <img src="img/logo.png" alt="logo leftovers"/>
     </div>
-    <div class="col-offset-50"></div>
-    <div class="padding">
-      <p>App built as an example for demonstrating many features of the Ionic Framework. Built by Jeremy Wilken, <a href="https://twitter.com/gnomeontherun">@gnomeontherun</a>.</p>
-      <h3>Projects Used</h3>
-      <ul>
-        <li><a href="http://ionicframework.com">Ionic Framework</a></li>
-        <li><a href="http://angularjs.org">AngularJS</a></li>
-        <li><a href="https://angular-ui.github.io/ui-router">AngularUI ui-router</a></li>
-        <li><a href="https://cordova.apache.org">Cordova</a></li>
-      </ul>
-      <p>Want to make improvements, found a bug, or just have questions? Open an issue on the <a href="https://github.com/ionic-in-action/ionic-demo-resort-app">GitHub project</a>.</p>
-      <p>Icon and Splashscreen licensed as CC 3.0 BY-SA/BYCG by Manamedia.com.</p>
+    <div class="item item-body about">
+      <p>Minimiser les pertes, maximiser le goût !</p>
     </div>
+    
+    <div class="card">
+      <div class="item item-divider">
+          Ils nous font confiance.
+      </div>
+      <div ng-repeat="item in friends" class="item item-text-wrap">
+        <div class="item item-image">
+          <img src={{item.url}}>
+        </div>
+        <h2>{{item.name}}</h2>
+      </div>
+      <div class="item item-divider">
+        test footer
+      </div>
+    </div>
+
+    
+    <h3>Projects Used</h3>
+    
+    <ul>
+      <li><a href="http://ionicframework.com">Ionic Framework</a></li>
+      <li><a href="http://angularjs.org">AngularJS</a></li>
+      <li><a href="https://angular-ui.github.io/ui-router">AngularUI ui-router</a></li>
+      <li><a href="https://cordova.apache.org">Cordova</a></li>
+    </ul>
+    
+    <p>Want to make improvements, found a bug, or just have questions? Open an issue on the <a href="https://github.com/ionic-in-action/ionic-demo-resort-app">GitHub project</a>.</p>
+    <p>Icon and Splashscreen licensed as CC 3.0 BY-SA/BYCG by Manamedia.com.</p>
+
+
   </ion-content>
 </ion-view>

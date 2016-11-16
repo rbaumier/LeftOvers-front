@@ -24,3 +24,25 @@
   margin-top: 0;
   border-radius: 0;
 }
+
+.bar-positive .nav-title-slide-ios7 .bar .bar-header .nav-bar .disable-user-behavior{
+  background-color: #00ccbc !important;
+}
+
+.about{
+  background-color: #00ccbc;
+  margin: auto;
+}
+
+.about img{
+  max-width:30%;
+  height:auto;
+}
+
+.about p{
+  opacity: 0.75;
+  text-align: center;
+  margin: auto;
+  font-size: 20px;
+}
+
