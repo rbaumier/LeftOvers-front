@@ -1,7 +1,21 @@
 <ion-view title="Promotions à côté de chez vous">
   <ion-content>
-    <div ng-repeat="deal in deals">
-      title: {{ deal.title }}<br>
+  	<div class="jumbotron">
+      <h1 class="white">LeftOvers</h1>
+      <img class="logo-small" src="img/logo.png" />
+      <h3 class="white">Minimisez le gaspillage, maximisez le gout !</h3>
+    </div>
+    <div id="search">
+    <label>Search: <input ng-model="searchText"></label>
+    </div>
+    <div ng-repeat="deal in deals | filter:searchText">
+      <div class="cards">
+      	<img src="{{deal.img}}" />
+      	<h4>{{deal.title}}</h4>
+      	<div class="row">
+      		
+      	</div>
+      </div>
     </div>
   </ion-content>
 </ion-view>

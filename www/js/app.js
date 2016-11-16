@@ -64,7 +64,7 @@ angular.module('App', ['ionic', 'restangular'])
 })
 
 .config(function(RestangularProvider) {
-  RestangularProvider.setBaseUrl('http://localhost:3005');
+  RestangularProvider.setBaseUrl('http://localhost:3005/api');
 })
 
 .factory('APIService', function(Restangular) {

@@ -17,6 +17,17 @@
   color: #fff;
 }
 
+.toggle{
+  top: 10px;
+  left: 20px;
+  z-index: 1000;
+  color: #eee;
+}
+
+.toggle :hover{
+  color: #fff;
+}
+
 .bar-positive .nav-title-slide-ios7 .bar .bar-header .nav-bar .disable-user-behavior{
   background-color: #00ccbc !important;
 }
@@ -41,3 +52,4 @@
 .brand{
   text-align: center;
 }
+
