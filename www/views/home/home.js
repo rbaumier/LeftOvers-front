@@ -1,4 +1,4 @@
-angular.module('App').controller('HomeCtrl', function ($scope, $http, $timeout, $ionicModal, $ionicLoading, $ionicPopup, EventsService) {
+angular.module('App').controller('HomeCtrl', function ($scope, $http, $timeout, $ionicModal, $ionicLoading, $ionicPopup) {
 
   var comment = {
     message: '',
@@ -41,10 +41,4 @@ angular.module('App').controller('HomeCtrl', function ($scope, $http, $timeout, 
   $http.get('http://api.openweathermap.org/data/2.5/weather?q=Key%20West,FL&units=imperial').success(function (data) {
     $scope.weather = data;
   });
-
-  var events = EventsService.$asArray();
-  events.$loaded().then(function () {
-    $scope.today = events[new Date().getDay()];
-  });
-
 });
