@@ -8,33 +8,18 @@
     </div>
     
     <div class="card">
-      <div class="item item-divider">
-          Ils nous font confiance.
+      <div class="item item-divider about">
+          <p>Ils nous font confiance.</p>
       </div>
-      <div ng-repeat="item in friends" class="item item-text-wrap">
+      <div ng-repeat="item in dealers" class="item item-text-wrap">
         <div class="item item-image">
-          <img src={{item.url}}>
+          <img src={{item.picture}}>
         </div>
-        <h2>{{item.name}}</h2>
+        <a class="item brand">{{item.name}}</a>
       </div>
       <div class="item item-divider">
-        test footer
+        <p>Leftovers™</p>
       </div>
     </div>
-
-    
-    <h3>Projects Used</h3>
-    
-    <ul>
-      <li><a href="http://ionicframework.com">Ionic Framework</a></li>
-      <li><a href="http://angularjs.org">AngularJS</a></li>
-      <li><a href="https://angular-ui.github.io/ui-router">AngularUI ui-router</a></li>
-      <li><a href="https://cordova.apache.org">Cordova</a></li>
-    </ul>
-    
-    <p>Want to make improvements, found a bug, or just have questions? Open an issue on the <a href="https://github.com/ionic-in-action/ionic-demo-resort-app">GitHub project</a>.</p>
-    <p>Icon and Splashscreen licensed as CC 3.0 BY-SA/BYCG by Manamedia.com.</p>
-
-
   </ion-content>
 </ion-view>
