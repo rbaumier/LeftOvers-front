@@ -6,6 +6,11 @@ angular.module('App').controller('HomeCtrl', function ($scope, $http, $timeout, 
   };
   $scope.comment = angular.copy(comment);
 
+  // Geolocation.getCurrentPosition().then((resp) => {
+  //  $scope.location.latitude = resp.coords.latitude;
+  //  $scope.location.longitude = resp.coords.longitude;
+  // });
+
   $scope.sendComments = function () {
     // Send comment
     $scope.cancelComments();

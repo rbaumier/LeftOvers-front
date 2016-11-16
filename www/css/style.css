@@ -24,3 +24,18 @@
   margin-top: 0;
   border-radius: 0;
 }
+
+.jumbotron{
+  background-image: url("../img/bg1.png");
+  padding: 50px;
+  color: #fff;
+  text-align: center;
+}
+
+.logo-small{
+  width: 200px;
+}
+
+.white{
+  color: #fff;
+}
