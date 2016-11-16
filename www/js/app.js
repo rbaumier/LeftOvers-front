@@ -37,7 +37,8 @@ angular.module('App', ['ionic', 'restangular'])
 
     .state('about', {
       url: '/about',
-      templateUrl: 'views/about/about.html'
+      templateUrl: 'views/about/about.html',
+      controller: 'AboutCtrl'
     });
 
   $urlRouterProvider.otherwise('/');
@@ -63,7 +64,7 @@ angular.module('App', ['ionic', 'restangular'])
 })
 
 .config(function(RestangularProvider) {
-  RestangularProvider.setBaseUrl('http://localhost:3005');
+  RestangularProvider.setBaseUrl('http://localhost:3005/api');
 })
 
 .factory('APIService', function(Restangular) {
