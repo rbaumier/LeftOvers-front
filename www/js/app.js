@@ -4,12 +4,6 @@ angular.module('App', ['ionic', 'restangular', 'angular-storage'])
   $urlRouterProvider.when('/', '/deals');
 
   $stateProvider
-    .state('dealers', {
-      url: '/dealers',
-      templateUrl: 'views/dealers/dealers.html',
-      controller: 'DealersCtrl'
-    })
-
     .state('preferences', {
       url: '/preferences',
       templateUrl: 'views/preferences/preferences.html',
