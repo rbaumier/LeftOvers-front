@@ -2,8 +2,8 @@
 
 angular.module('App').controller('MyDealsCtrl', function ($scope, $http, $timeout, $ionicModal, $ionicLoading, $ionicPopup, APIService) {
   var dealerId = '6400b93e-b568-4fa5-9b72-b9e72d5cd8bc';
-  APIService.deals.getByDealerId(dealerId).then(function(deals) {
-    $scope.deals = deals;
+  APIService.deals.getByDealerId(dealerId).then(function(dealer) {
+    $scope.deals = dealer.deals;
   });
 
   APIService.dealers.getById(dealerId).then(function(deals) {
