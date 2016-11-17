@@ -7,7 +7,7 @@
 }
 
 .jumbotron{
-  background-image: url("../img/bg1.png");
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/bg-spices2.png");
   padding: 25px;
   color: #fff;
   text-align: center;
