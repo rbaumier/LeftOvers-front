@@ -1,6 +1,14 @@
-<ion-view title="nom du magasin">
-  <ion-content>
-  	dealer: {{dealer}}
-
+<ion-view title="Leftovers">
+  <ion-content class="list-card">
+  	<!--dealer: {{dealer}}-->
+  	<div class="item item-image about">
+      <img ng-src="{{dealer.picture}}" alt="logo"/>
+    </div>
+    <div class="item item-body about">
+      <p>{{dealer.name}}</p>
+    </div>
+    <div class="item item-body about">
+      <p>{{dealer.rating}</p>
+    </div>
   </ion-content>
 </ion-view>
