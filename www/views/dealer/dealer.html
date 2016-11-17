@@ -7,8 +7,7 @@
       <h3 class="white shadow">{{avgRating}}/5</h3>
     </div>
     <div class="offers-body center">
-    <hr/>
-    <p class="bold white text-center bleu">Tous les bons plans</p>  
+    <p class="divider bold white text-center bleu">Tous les bons plans</p>  
     <div ng-repeat="deal in deals" class="card" ng-mouseenter="openHover(this)" ng-mouseleave="closeHover(this)">
         <div class="item item-text-wrap deal-block" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../../img/dealers/1.jpg);background-size: cover;">
           <span class="deal-img">
@@ -29,9 +28,7 @@
           </div>
         </div>
       </div>
-
-      <hr/>
-      <p class="bold white text-center bleu">Commentaires</p>
+      <p class="divider bold white text-center bleu">Commentaires</p>
       <div ng-repeat="rating in ratings" class="card" ng-mouseenter="openHover(this)" ng-mouseleave="closeHover(this)">
         <div class="item item-text-wrap deal-block" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../../img/dealers/1.jpg);background-size: cover;">
           <span class="deal-img">

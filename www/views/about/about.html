@@ -6,8 +6,8 @@
       <h3 class="white shadow">Minimiser les restes, maximiser le goût !</h3>
       <h4 class="white shadow">Notre projet consiste à mettre en relation les petits commerces de façon B2C. Les commerçants partageront des annonces quant à leurs produits sur le point d'être jetés afin de les mettre à la vente à prix réduit.</h4>
     </div>
-    <hr/>
-    <p class="bold white text-center bleu">Ils nous font confiance</p>  
+    <div class="offers-body center">
+    <p class="divider bold white text-center bleu">Ils nous font confiance</p>  
     <div ng-repeat="deal in dealers" class="card" ng-mouseenter="openHover(this)" ng-mouseleave="closeHover(this)">
       <div class="item item-text-wrap deal-block" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url({{deal.picture}});background-size: cover;">
         <span class="deal-img" ui-sref="dealer({ id: deal.id})">
@@ -18,7 +18,7 @@
         </span>
       </div>
     </div>
-    <p class="bold white text-center bleu">L'équipe</p>
+    <p class="divider bold white text-center bleu">L'équipe</p>
     <div class="item item-text-wrap faceblock">
         <span class="deal-img">
           <img class="faces" src="../../img/faces/celyaNB.png">
@@ -35,6 +35,7 @@
         <span class="deal-img">
           <img class="faces" src="../../img/faces/walrandNB.png">
         </span>
+      </div>
       </div>
   </ion-content>
 </ion-view>

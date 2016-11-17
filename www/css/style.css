@@ -2,6 +2,12 @@
   color: red;
 }
 
+.divider{
+  height: 40px;
+  line-height: 40px;
+  margin-top: 25px;
+}
+
 .dealer-picture {
   width: 100px;
 }
@@ -203,6 +209,7 @@
 
 .faceblock{
   text-align: center;
+  border: none;
 }
 
 @media screen and (max-width: 640px) {
