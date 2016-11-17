@@ -4,13 +4,14 @@
 
 .jumbotron{
   background-image: url("../img/bg1.png");
-  padding: 50px;
+  padding: 25px;
   color: #fff;
   text-align: center;
 }
 
 .logo-small{
-  width: 200px;
+  width: 150px;
+  margin: 10px;
 }
 
 .white{
@@ -26,10 +27,6 @@
 
 .toggle :hover{
   color: #fff;
-}
-
-.bar-positive .nav-title-slide-ios7 .bar .bar-header .nav-bar .disable-user-behavior{
-  background-color: #00ccbc !important;
 }
 
 .about{
@@ -83,6 +80,9 @@
 .bold{
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.shadow{
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 }
 
@@ -91,11 +91,14 @@
 }
 
 .deal-block{
+  margin-right: auto;
+  margin-left: auto;
   height: 150px;
 }
 
 .right{
-  float: right;
+  text-align: right;
+  margin-left: 130px;
 }
 
 .deal-img{
@@ -120,9 +123,24 @@
 
 .offers-body{
   width: 80%;
-  margin: auto;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.center{
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .brand{
   text-align: center;
+}
+
+.btn{
+  max-width: 500px;
+}
+
+.rose{
+  border-color: #BA4C71 !important;
+  background-color: #F06292 !important;
 }
