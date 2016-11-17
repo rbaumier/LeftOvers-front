@@ -10,47 +10,47 @@ angular.module('App', ['ionic', 'restangular', 'angular-storage'])
       controller: 'PreferencesCtrl'
     })
 
-    .state('deals', {
-      url: '/deals',
-      templateUrl: 'views/deals/deals.html',
-      controller: 'DealsCtrl'
-    })
+  .state('deals', {
+    url: '/deals',
+    templateUrl: 'views/deals/deals.html',
+    controller: 'DealsCtrl'
+  })
 
-    .state('newdeal', {
-      url: '/deals/new',
-      templateUrl: 'views/deals/newdeal.html',
-      controller: 'NewDealCtrl'
-    })
+  .state('newdeal', {
+    url: '/deals/new',
+    templateUrl: 'views/deals/newdeal.html',
+    controller: 'NewDealCtrl'
+  })
 
-    .state('mydeals', {
-      url: '/deals/me',
-      templateUrl: 'views/deals/mydeals.html',
-      controller: 'MyDealsCtrl'
-    })
+  .state('mydeals', {
+    url: '/deals/me',
+    templateUrl: 'views/deals/mydeals.html',
+    controller: 'MyDealsCtrl'
+  })
 
-    .state('dealer', {
-      url: '/dealers/:id',
-      templateUrl: 'views/dealer/dealer.html',
-      controller: 'DealerCtrl'
-    })
+  .state('dealer', {
+    url: '/dealers/:id',
+    templateUrl: 'views/dealer/dealer.html',
+    controller: 'DealerCtrl'
+  })
 
-    .state('login', {
-      url: '/login',
-      templateUrl: 'views/auth/login.html',
-      controller: 'LoginCtrl'
-    })
+  .state('login', {
+    url: '/login',
+    templateUrl: 'views/auth/login.html',
+    controller: 'LoginCtrl'
+  })
 
-    .state('signup', {
-      url: '/signup',
-      templateUrl: 'views/auth/signup.html',
-      controller: 'SignupCtrl'
-    })
+  .state('signup', {
+    url: '/signup',
+    templateUrl: 'views/auth/signup.html',
+    controller: 'SignupCtrl'
+  })
 
-    .state('about', {
-      url: '/about',
-      templateUrl: 'views/about/about.html',
-      controller: 'AboutCtrl'
-    });
+  .state('about', {
+    url: '/about',
+    templateUrl: 'views/about/about.html',
+    controller: 'AboutCtrl'
+  });
 
   $urlRouterProvider.otherwise('/');
 })
@@ -119,7 +119,7 @@ angular.module('App', ['ionic', 'restangular', 'angular-storage'])
       getById: function(id) {
         return Restangular.one('dealers', id).get();
       },
-      getRatingById: function(id){
+      getRatingById: function(id) {
         return Restangular.one('dealers', id).all('ratings').getList();
       }
     },
@@ -139,12 +139,21 @@ angular.module('App', ['ionic', 'restangular', 'angular-storage'])
     },
     preferences: {
       get: function(userId) {
-        return Restangular.one('users', userId).customGET('preferences', {});
+        return Restangular.one('users', userId).customGET('preferences', { user_id: userId });
+      },
+      update: function(id, preferences) {
+        return Restangular.one('users', id).all('preferences').customPUT(preferences, '', {});
       }
     },
     users: {
-      getById: function(id) {
+      create: function(user) {
+        return Restangular.all('users').post(user);
+      },
+      getById: function(id) {
         return Restangular.one('users', id).get();
+      },
+      update: function(id, user) {
+        return Restangular.one('users', id).customPUT(user, '', {});
       }
     }
   };
@@ -156,7 +165,7 @@ angular.module('App', ['ionic', 'restangular', 'angular-storage'])
       shouldRedirect = true; // redirect by default
     }
     return APIService.auth.login(credentials).then(function(user) {
-      if(user.success === false) {
+      if (user.success === false) {
         return $q.reject(user.message);
       }
       store.set('user', user);
