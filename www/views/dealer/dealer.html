@@ -7,8 +7,6 @@
       <h3 class="white shadow">{{avgRating}}</h3>
     </div>
     <div class="offers-body center">
-
-
     <hr/>
     <p class="bold white text-center" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../../img/dealers/1.jpg);background-size: cover;">All deals</p>  
     <div ng-repeat="deal in deals" class="card" ng-mouseenter="openHover(this)" ng-mouseleave="closeHover(this)">
@@ -19,7 +17,7 @@
           </span>
         </div>
         <div>
-                <div>
+          <div>
         <span class="row">
           <span class="badge-price white">{{ deal.full_price * (1 - deal.promotion) | number:2}}€</span>
           <span class="promotion-text">-{{ deal.promotion * 100 | number:0}}%</span>
@@ -28,8 +26,8 @@
           <div>à : {{deal.end_date | date : "hh:mm"}}</div>
         </span>
         </span>
-      </div>
-      </div>
+          </div>
+        </div>
       </div>
 
       <hr/>
