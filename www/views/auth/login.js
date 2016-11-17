@@ -1,9 +1,12 @@
 'use strict';
 
-angular.module('App').controller('LoginCtrl', function($scope, APIService, store, $state) {
-  $scope.login = function(user) {
-    APIService.auth.login(user).then(function(token) {
-      store.set('jwt', token);
+angular.module('App').controller('LoginCtrl', function($scope, $state, APIService, store) {
+  $scope.login = function(credentials) {
+    APIService.auth.login(credentials).then(function(user) {
+      store.set('user', {
+        id: user.id,
+        token: user.token
+      });
       $state.go('deals');
     }).catch(function(error) {
       console.error(error.data);
