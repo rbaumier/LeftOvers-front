@@ -6,6 +6,10 @@ angular.module('App').controller('MyDealsCtrl', function ($scope, $http, $timeou
     $scope.deals = deals;
   });
 
+  APIService.dealers.getById(dealerId).then(function(deals) {
+    $scope.dealer = deals;
+  });
+
   $scope.remove = function(deal) {
     APIService.deals.removeById(deal.id).then(function() {
       $scope.deals = _.reject($scope.deals, deal);

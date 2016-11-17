@@ -108,7 +108,7 @@ angular.module('App', ['ionic', 'restangular', 'angular-storage'])
     },
     deals: {
       get: function() {
-        return Restangular.all('deals').getList();
+        return Restangular.all('deals').getList({geolocation: "1.5535387999999999, 47.2173782", radius: 4000});
       },
       getByDealerId: function(dealerId) {
         return Restangular.all('deals').customGET('', { dealer_id: dealerId });
