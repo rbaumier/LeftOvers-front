@@ -1,4 +1,4 @@
-angular.module('App', ['ionic', 'restangular'])
+angular.module('App', ['ionic', 'restangular', 'angular-storage'])
 
 .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.when('/', '/deals');
@@ -34,6 +34,23 @@ angular.module('App', ['ionic', 'restangular'])
       controller: 'MyDealsCtrl'
     })
 
+    .state('dealer', {
+      url: '/dealers/:id',
+      templateUrl: 'views/dealer/dealer.html',
+      controller: 'DealerCtrl'
+    })
+
+    .state('login', {
+      url: '/login',
+      templateUrl: 'views/auth/login.html',
+      controller: 'LoginCtrl'
+    })
+
+    .state('signup', {
+      url: '/signup',
+      templateUrl: 'views/auth/signup.html',
+      controller: 'SignupCtrl'
+    })
 
     .state('about', {
       url: '/about',
@@ -65,6 +82,18 @@ angular.module('App', ['ionic', 'restangular'])
 
 .config(function(RestangularProvider) {
   RestangularProvider.setBaseUrl('http://leftovers.jlitaize.fr/api');
+  RestangularProvider.setFullRequestInterceptor(function(element, operation, route, url, headers, params, httpConfig) {
+    var jwt = window.localStorage.getItem('jwt');
+    if(jwt && !angular.isString(headers.Authorization)) {
+      headers.Authorization = 'Bearer ' + jwt;
+    }
+    return {
+      element: element,
+      params: params,
+      headers: headers,
+      httpConfig: httpConfig
+    };
+  });
 })
 
 .factory('APIService', function(Restangular) {
@@ -72,6 +101,9 @@ angular.module('App', ['ionic', 'restangular'])
     dealers: {
       get: function() {
         return Restangular.all('dealers').getList();
+      },
+      getById: function(id) {
+        return Restangular.one('dealers', id).get();
       }
     },
     deals: {
