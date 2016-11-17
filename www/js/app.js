@@ -116,6 +116,9 @@ angular.module('App', ['ionic', 'restangular', 'angular-storage'])
       }
     },
     dealers: {
+      create: function(dealer) {
+        return Restangular.all('dealers').post(dealer);
+      },
       get: function() {
         return Restangular.all('dealers').getList();
       },
