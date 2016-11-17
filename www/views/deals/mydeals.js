@@ -1,12 +1,14 @@
 'use strict';
 
-angular.module('App').controller('MyDealsCtrl', function ($scope, $http, $timeout, $ionicModal, $ionicLoading, $ionicPopup, APIService) {
-  var dealerId = '6400b93e-b568-4fa5-9b72-b9e72d5cd8bc';
-  APIService.deals.getByDealerId(dealerId).then(function(dealer) {
+angular.module('App').controller('MyDealsCtrl', function ($scope, $http, $timeout, $ionicModal, $ionicLoading, $ionicPopup, APIService, store) {
+  var user = store.get('user');
+  if(!user) return;
+
+  APIService.deals.getByDealerId(user.id).then(function(dealer) {
     $scope.deals = dealer.deals;
   });
 
-  APIService.dealers.getById(dealerId).then(function(deals) {
+  APIService.dealers.getById(user.is).then(function(deals) {
     $scope.dealer = deals;
   });
 
