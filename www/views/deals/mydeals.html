@@ -5,6 +5,7 @@
       <img class="logo-small" src="img/logo-bg.png" />
       <h3 class="white shadow">{{dealer.description}}</h3>
     </div>
+        <button class="bleu button button-block center btn button-positive activated" ui-sref="newdeal">Créer une promotion</button>
     <div class="offers-body center">
 	    <div ng-repeat="deal in deals | filter:searchText" class="card" ng-mouseenter="openHover(this)" ng-mouseleave="closeHover(this)">
 	      <div class="item item-text-wrap deal-block" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../../img/dealers/1.jpg);background-size: cover;">
@@ -24,7 +25,6 @@
 		  	</span>
 		  </div>
 	    </div>
-    <button class="bleu button button-block center btn button-positive activated" ui-sref="newdeal">Créer une promotion</button>
     </div>
   </ion-content>
 </ion-view>
