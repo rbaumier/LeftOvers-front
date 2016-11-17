@@ -18,13 +18,13 @@
 		  		<span class="badge-price white">{{ deal.full_price * (1 - deal.promotion) | number:2}}€</span>
 		  		<span class="promotion-text">-{{ deal.promotion * 100 | number:0}}%</span>
 		  	<span class="right">
-		  		<div>commence : {{deal.start_date | date : "hh:mm"}}</div>
-		  		<div>fini : {{deal.end_date | date : "hh:mm"}}</div>
+		  		<div>de : {{deal.start_date | date : "hh:mm"}}</div>
+		  		<div>à : {{deal.end_date | date : "hh:mm"}}</div>
 		  	</span>
 		  	</span>
 		  </div>
 	    </div>
-    <button class="rose button button-block center btn button-positive activated" ui-sref="newdeal">Créer une promotion</button>
+    <button class="bleu button button-block center btn button-positive activated" ui-sref="newdeal">Créer une promotion</button>
     </div>
   </ion-content>
 </ion-view>
