@@ -8,7 +8,7 @@ angular.module('App').controller('MyDealsCtrl', function ($scope, $http, $timeou
     $scope.deals = dealer.deals;
   });
 
-  APIService.dealers.getById(user.is).then(function(deals) {
+  APIService.dealers.getById(user.id).then(function(deals) {
     $scope.dealer = deals;
   });
 
