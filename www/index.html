@@ -13,6 +13,7 @@
 
     <script src="lib/lodash/dist/lodash.min.js"></script>
     <script src="lib/restangular/dist/restangular.js"></script>
+    <script src="lib/a0-angular-storage/dist/angular-storage.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
@@ -26,6 +27,8 @@
     <script src="views/deals/newdeal.js"></script>
     <script src="views/deals/mydeals.js"></script>
     <script src="views/about/about.js"></script>
+    <script src="views/auth/login.js"></script>
+    <script src="views/auth/signup.js"></script>
   </head>
   <body ng-app="App">
 
@@ -45,6 +48,7 @@
             <ion-item ui-sref="mydeals" class="item-icon-left" menu-close> <i class="icon ion-ios7-information"></i> Mes promotions</ion-item>
             <ion-item ui-sref="dealers" class="item-icon-left" menu-close> <i class="icon ion-ios7-information"></i> Revendeurs</ion-item>
             <ion-item ui-sref="preferences" class="item-icon-left" menu-close> <i class="icon ion-ios7-information"></i> Préférences</ion-item>
+            <ion-item ui-sref="login" class="item-icon-left" menu-close> <i class="icon ion-ios7-information"></i> Login</ion-item>
             <ion-item href="#/about" class="item-icon-left" menu-close> <i class="icon ion-ios7-information"></i> À propos</ion-item>
           </ion-list>
         </ion-content>

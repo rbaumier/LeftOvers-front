@@ -6,6 +6,7 @@
     "angularfire": "~0.8.2",
     "restangular": "^1.5.2",
     "lodash": "^4.17.2",
-    "ion-datetime-picker": "^0.4.1"
+    "ion-datetime-picker": "^0.4.1",
+    "a0-angular-storage": "^0.0.15"
   }
 }

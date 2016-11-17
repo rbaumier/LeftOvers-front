@@ -1,0 +1,77 @@
+<ion-view title="Nouveau compte">
+  <ion-tabs class="tabs-positive tabs-icon-top">
+    <ion-tab title="Utilisateur" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline">
+      <ion-content>
+        <div class="list list-inset">
+          <div class="errors">{{ userErrors }}</div>
+
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Adresse email</span>
+            <input type="text" placeholder="Adresse email" ng-model="user.email">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Mot de passe</span>
+            <input type="password" placeholder="Mot de passe" ng-model="user.password">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Prénom</span>
+            <input type="text" placeholder="Prénom" ng-model="user.firstname">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Nom</span>
+            <input type="text" placeholder="Nom" ng-model="user.lastname">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Localisation</span>
+            <input type="text" placeholder="Récupération en cours ..." ng-model="user.geolocation">
+          </label>
+        </div>
+
+        <div class="padding">
+          <button class="button button-block button-positive activated" ng-click="createUser(user)">Créer mon compte</button>
+        </div>
+
+      </ion-content>
+    </ion-tab>
+
+    <ion-tab title="Revendeur" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline">
+      <ion-content>
+        <div class="list list-inset">
+          <div class="errors">{{ userErrors }}</div>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Adresse email</span>
+            <input type="text" placeholder="Adresse email" ng-model="dealer.email">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Mot de passe</span>
+            <input type="text" placeholder="Mot de passe" ng-model="dealer.description">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Nom de votre magasin</span>
+            <input type="text" placeholder="Nom de votre magasin" ng-model="dealer.name">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Téléphone</span>
+            <input type="text" placeholder="Téléphone" ng-model="dealer.phone">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Adresse</span>
+            <input type="text" placeholder="Adresse" ng-model="dealer.address" value="dealer.address">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Photo ou logo (lien)</span>
+            <input type="text" placeholder="Photo ou logo (lien)" ng-model="dealer.picture">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Localisation</span>
+            <input type="text" placeholder="Récupération en cours ..." ng-model="dealer.geolocation">
+          </label>
+        </div>
+
+        <div class="padding">
+          <button class="button button-block button-positive activated" ng-click="createUser(dealer)">Créer mon compte</button>
+        </div>
+      </ion-content>
+    </ion-tab>
+  </ion-tabs>
+</ion-view>
