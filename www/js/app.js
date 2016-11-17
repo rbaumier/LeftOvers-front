@@ -82,11 +82,15 @@ angular.module('App', ['ionic', 'restangular', 'angular-storage'])
 
 .config(function(RestangularProvider) {
   RestangularProvider.setBaseUrl('http://leftovers.jlitaize.fr/api');
-  RestangularProvider.setFullRequestInterceptor(function(element, operation, route, url, headers, params, httpConfig) {
-    var jwt = window.localStorage.getItem('jwt');
-    if(jwt && !angular.isString(headers.Authorization)) {
-      headers.Authorization = 'Bearer ' + jwt;
+  // RestangularProvider.setBaseUrl('http://l:3005/api');
+  RestangularProvider.setFullRequestInterceptor(function(element, operation, route, url, headers, params, httpConfig, store) {
+    var JSONUser = window.localStorage.getItem('user');
+    if (JSONUser) {
+      headers.Authorization = 'Bearer ' + JSON.parse(JSONUser).token;
+    } else {
+      delete headers.Authorization;
     }
+
     return {
       element: element,
       params: params,
@@ -115,8 +119,8 @@ angular.module('App', ['ionic', 'restangular', 'angular-storage'])
       }
     },
     deals: {
-      get: function() {
-        return Restangular.all('deals').getList({ geolocation: '-1.5535387999999999, 47.2173782', radius: 4000 });
+      get: function(geolocation, user_id) {
+        return Restangular.all('deals').getList({ geolocation: geolocation, user_id: user_id }); // à regarder dans les user preferences de la bdd
       },
       getByDealerId: function(dealerId) {
         return Restangular.all('deals').customGET('search', { dealer_id: dealerId });
@@ -133,5 +137,29 @@ angular.module('App', ['ionic', 'restangular', 'angular-storage'])
         return Restangular.all('preferences').customGET('', { user_id: userId });
       }
     }
+  };
+})
+
+.factory('AuthService', function(Restangular, APIService, store) {
+  function login(credentials, shouldRedirect) {
+    if (_.isUndefined(shouldRedirect)) {
+      shouldRedirect = true; // redirect by default
+    }
+    return APIService.auth.login(credentials).then(function(user) {
+      store.set('user', user);
+      return shouldRedirect ? location.reload() : true;
+    });
+  }
+
+  function logout() {
+    store.remove('user');
+    return APIService.auth.logout().then(function() {
+      location.reload();
+    });
+  }
+
+  return {
+    login: login,
+    logout: logout
   };
 })
