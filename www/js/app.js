@@ -104,14 +104,17 @@ angular.module('App', ['ionic', 'restangular', 'angular-storage'])
       },
       getById: function(id) {
         return Restangular.one('dealers', id).get();
+      },
+      getRatingById: function(id){
+        return Restangular.one('dealers', id).all('ratings').getList();
       }
     },
     deals: {
       get: function() {
-        return Restangular.all('deals').getList({geolocation: '-1.5535387999999999, 47.2173782', radius: 4000});
+        return Restangular.all('deals').getList({ geolocation: '-1.5535387999999999, 47.2173782', radius: 4000 });
       },
       getByDealerId: function(dealerId) {
-        return Restangular.all('deals').customGET('', { dealer_id: dealerId });
+        return Restangular.all('deals').customGET('search', { dealer_id: dealerId });
       },
       create: function(deal) {
         return Restangular.all('deals').post(deal);

@@ -2,9 +2,27 @@
 
 angular.module('App').controller('DealerCtrl', function ($scope, $stateParams, APIService) {
   APIService.dealers.getById($stateParams.id).then(function(dealer) {
-  	console.log('dealer', JSON.stringify(dealer))
     $scope.dealer = dealer;
   });
+  APIService.dealers.getRatingById($stateParams.id).then(function(ratings) {
+    $scope.ratings = ratings;
+
+    $scope.avgRating = calculateAvgRating(ratings);
+
+  });
+
+  var calculateAvgRating = function(el){
+  	var noteMoy=0;
+  	var number=0;
+  	el.map(function(value){
+  		if(value.note){
+  			noteMoy+=value.note;
+  			number++;
+  		}
+  	});
+  	return (noteMoy / number).toFixed(1);
+  }
+
 });
 
 
