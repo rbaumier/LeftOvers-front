@@ -190,6 +190,11 @@
   background-color: #F06292 !important;
 }
 
+.faces{
+  width:300px;
+  height:300px;
+}
+
 @media screen and (max-width: 640px) {
   .card{
     width: 100%;
