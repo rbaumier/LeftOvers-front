@@ -1,9 +1,70 @@
 <ion-view title="Revendeurs">
-  <ion-content>
-    <div ng-repeat="dealer in dealers">
-      name: {{ dealer.name }}
-      <img class="dealer-picture" ng-src="{{ dealer.picture }}">
-      <br>
+  <ion-content ng-show="isUser">
+    <div class="jumbotron">
+      <h1 class="white shadow">Mon compte</h1>
     </div>
-  </ion-content>
+      <div class="list list-inset">
+        <div class="errors">{{ errors }}</div>
+
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Prénom</span>
+          <input type="text" placeholder="Prénom" ng-model="user.firstname">
+        </label>
+
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Nom</span>
+          <input type="text" placeholder="Nom" ng-model="user.lastname">
+        </label>
+
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Rayon de recherche</span>
+          <input type="text" placeholder="en mètres" ng-model="preferences.radius">
+        </label>
+      </div>
+
+      <div class="padding">
+        <button class="bleu button button-block button-positive activated" ng-click="updateUser(user, preferences)">Modifier mon compte</button>
+      </div>
+
+      <button ng-click="logout()">Déconnexion</button>
+    </ion-content>
+
+    <ion-content ng-show="isDealer">
+      <div class="jumbotron">
+        <h1 class="white shadow">Mon compte</h1>
+      </div>
+        <div class="list list-inset">
+          <div class="errors">{{ errors }}</div>
+
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Adresse email</span>
+            <input type="text" placeholder="Adresse email" ng-model="dealer.email">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Mot de passe</span>
+            <input type="text" placeholder="Mot de passe" ng-model="dealer.description">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Nom de votre magasin</span>
+            <input type="text" placeholder="Nom de votre magasin" ng-model="dealer.name">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Téléphone</span>
+            <input type="text" placeholder="Téléphone" ng-model="dealer.phone">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Adresse</span>
+            <input type="text" placeholder="Adresse" ng-model="dealer.address" value="dealer.address">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Photo ou logo (lien)</span>
+            <input type="text" placeholder="Photo ou logo (lien)" ng-model="dealer.picture">
+          </label>
+
+        <div class="padding">
+          <button class="bleu button button-block button-positive activated" ng-click="updateDealer(dealer)">Modifier mon compte</button>
+        </div>
+
+        <button ng-click="logout()">Déconnexion</button>
+      </ion-content>
 </ion-view>
