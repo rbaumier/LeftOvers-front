@@ -2,20 +2,31 @@
   <ion-content>
   	<div class="jumbotron">
       <h1 class="white">LeftOvers</h1>
-      <img class="logo-small" src="img/logo.png" />
+      <img class="logo-small" src="img/logo-bg.png" />
       <h3 class="white">Minimisez le gaspillage, maximisez le gout !</h3>
     </div>
     <div id="search">
-    <label>Search: <input ng-model="searchText"></label>
+    	<input id="searchBar" placeholder="Recherche une offre..." ng-model="searchText">
     </div>
-    <div ng-repeat="deal in deals | filter:searchText">
-      <div class="cards">
-      	<img src="{{deal.img}}" />
-      	<h4>{{deal.title}}</h4>
-      	<div class="row">
-      		
-      	</div>
+    <div class="offers-body">
+    <div ng-repeat="deal in deals | filter:searchText" class="card" ng-mouseenter="openHover(this)" ng-mouseleave="closeHover(this)">
+      <div class="item item-text-wrap deal-block" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../../img/dealers/1.jpg);background-size: cover;">
+      	<span class="deal-img">
+	      	<h2 class="bold white">{{deal.title}}</h2>
+	      	<h3 class="bold white">{{deal.description}}</h3>
+      	</span>
       </div>
+      <div>
+	  	<span class="row">
+	  		<span class="badge-price white">{{ deal.full_price * (1 - deal.promotion) | number:2}}€</span>
+	  		<span class="promotion-text">-{{ deal.promotion * 100 | number:0}}%</span>
+	  	</span>
+	  	<span class="right">
+	  		<div>commence : {{deal.start_date | date : "hh:mm"}}</div>
+	  		<div>fini : {{deal.end_date | date : "hh:mm"}}</div>
+	  	</span>
+	  </div>
+    </div>
     </div>
   </ion-content>
 </ion-view>

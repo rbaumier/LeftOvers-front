@@ -64,7 +64,7 @@ angular.module('App', ['ionic', 'restangular'])
 })
 
 .config(function(RestangularProvider) {
-  RestangularProvider.setBaseUrl('http://localhost:3005/api');
+  RestangularProvider.setBaseUrl('http://leftovers.jlitaize.fr/api');
 })
 
 .factory('APIService', function(Restangular) {
