@@ -124,6 +124,9 @@ angular.module('App', ['ionic', 'restangular', 'angular-storage'])
       },
       getRatingById: function(id) {
         return Restangular.one('dealers', id).all('ratings').getList();
+      },
+      update: function(id, dealer) {
+        return Restangular.one('dealers', id).customPUT(dealer, '', {});
       }
     },
     deals: {

@@ -14,9 +14,11 @@ angular.module('App').controller('SignupCtrl', function($scope, APIService, Auth
   });
 
   function login(kindOfUser) {
-    return AuthService.login(_.pick(kindOfUser, 'email', 'password'), false).then(function() {
-      $state.go('deals');
-    })
+    return function() {
+      return AuthService.login(_.pick(kindOfUser, 'email', 'password')).then(function() {
+        $state.go('deals');
+      });
+    }
   }
 
   $scope.createUser = function(user) {
