@@ -21,10 +21,12 @@
 		  		<span class="badge-price white">{{ deal.full_price * (1 - (deal.promotion/100)) | number:2}}€</span>
 		  		<span class="promotion-text">-{{ deal.promotion | number:0}}%</span>
 		  		<span class="bold-pourromaincegroscon ml-20 text-rose">x{{deal.quantity}}</span>
-		  	<span class="right">
-		  	<p id="test"></p>
+		  	<span class="right" ng-if="deal.walrandTG = false">
 		  		<div>de : {{deal.start_date | date : "hh:mm"}}</div>
 		  		<div>à : {{deal.end_date | date : "hh:mm"}}</div>
+		  	</span>
+		  	<span class="right" ng-if="deal.walrandTG = true">
+		  		<h3 class="bold text-rose"></h3>
 		  	</span>
 		  	</div>
 		  	<div class="deal-name">

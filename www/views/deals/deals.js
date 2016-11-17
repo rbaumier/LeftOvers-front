@@ -2,6 +2,13 @@
 
 angular.module('App').controller('DealsCtrl', function ($scope, $http, $timeout, $ionicModal, $ionicLoading, $ionicPopup, APIService) {
   APIService.deals.get().then(function(deals) {
+  	deals.map(function(deal){
+  		if(moment(deal.end_date) < moment()){
+  			deal.walrandTG = true;
+  		} else {
+  			deal.walrandTG = false;
+  		}
+  	})
     $scope.deals = deals;
   });
 
