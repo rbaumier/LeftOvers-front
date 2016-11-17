@@ -35,8 +35,8 @@
 }
 
 .about img{
-  max-width:30%;
   height:auto;
+  max-width: 30%;
 }
 
 .about p{
@@ -54,9 +54,9 @@
 }
 
 #searchBar{
-  width: 40%;
+  width: 60%;
   height: 40px;
-  margin-left: 30%;
+  margin-left: 20%;
   padding-left: 20px;
 }
 
@@ -65,7 +65,7 @@
   width: 50px;
   height: 50px;
   padding-top: 15px;
-  border-radius: 50%;
+  border-radius: 25px;
   text-align: center;
   background-color: #00ccbc;
   font-weight: bold;
@@ -91,14 +91,21 @@
 }
 
 .deal-block{
-  margin-right: auto;
-  margin-left: auto;
   height: 150px;
+    margin-right: auto;
+  margin-left: auto;
 }
 
 .right{
   text-align: right;
-  margin-left: 130px;
+    float: right;
+    position: absolute;
+    right: 10px;
+}
+
+.row{
+  position: relative;
+  height: 50px;
 }
 
 .deal-img{
@@ -117,12 +124,14 @@
 
 .card{
   border-radius: 4px;
-  width: 350px;
   display: inline-block;
+  min-width: 280px;
+  width: 31%;
 }
 
 .offers-body{
-  width: 80%;
+  width: 95%;
+  max-width: 1000px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -141,6 +150,24 @@
 }
 
 .rose{
+  border-color: #00ccbc !important;
+  background-color: #F06292 !important;
+}
+
+.bleu{
   border-color: #BA4C71 !important;
   background-color: #F06292 !important;
+}
+
+@media screen and (max-width: 640px) {
+  .card{
+    width: 100%;
+    margin: 20px 0;
+  }
+  #searchBar{
+    width: 90%;
+    height: 40px;
+    margin-left: 5%;
+    padding-left: 20px;
+  }
 }
