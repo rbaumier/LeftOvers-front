@@ -23,6 +23,7 @@ angular.module('App').controller('DealsCtrl', function($scope, $http, $timeout, 
           deal.walrandTG = false;
         }
       })
+      console.log(deals);
       $scope.deals = deals;
     });
   });
