@@ -5,6 +5,8 @@ angular.module('App').controller('DealsCtrl', function ($scope, $http, $timeout,
     $scope.deals = deals;
   });
 
+  $scope.today = moment();
+
   function openHover(el){
   	console.log(el);
   	$(this).find(".deal-img").addClass('deal-img-open');

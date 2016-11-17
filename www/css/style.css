@@ -168,16 +168,16 @@
   margin-left: 20px;
 }
 
-.rose{
-  border-color: #00ccbc !important;
-  background-color: #F06292 !important;
+.bleu{
+  border-color: #008C81 !important;
+  background-color: #00ccbc !important;
 }
 
 .text-rose{
   color: #F06292;
 }
 
-.bleu{
+.rose{
   border-color: #BA4C71 !important;
   background-color: #F06292 !important;
 }
