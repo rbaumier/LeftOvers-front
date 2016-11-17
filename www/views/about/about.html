@@ -6,7 +6,7 @@
     </div>
     <hr/>
     <p class="bold white text-center bleu">Ils nous font confiance</p>  
-    <div ng-repeat="deal in dealers" class="card" ng-mouseenter="openHover(this)" ng-mouseleave="closeHover(this)">
+    <div ng-repeat="deal in dealers" class="card center" ng-mouseenter="openHover(this)" ng-mouseleave="closeHover(this)">
       <div class="item item-text-wrap deal-block" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url({{deal.picture}});background-size: cover;">
         <span class="deal-img" ui-sref="dealer({ id: deal.id})">
           <h2 class="bold shadow white">{{deal.name}}</h2>

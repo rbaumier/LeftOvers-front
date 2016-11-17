@@ -86,7 +86,7 @@ angular.module('App', ['ionic', 'restangular', 'angular-storage'])
 })
 
 .config(function(RestangularProvider) {
-  RestangularProvider.setBaseUrl('http://leftovers.jlitaize.fr/api');
+  RestangularProvider.setBaseUrl('https://leftovers.jlitaize.fr/api');
   // RestangularProvider.setBaseUrl('http://l:3005/api');
   RestangularProvider.setFullRequestInterceptor(function(element, operation, route, url, headers, params, httpConfig, store) {
     var JSONUser = window.localStorage.getItem('user');
