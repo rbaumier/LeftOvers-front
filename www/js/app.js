@@ -177,8 +177,8 @@ angular.module('App', ['ionic', 'restangular', 'angular-storage'])
   }
 
   function logout() {
-    store.remove('user');
     return APIService.auth.logout().then(function() {
+      store.remove('user');
       location.reload();
     });
   }
