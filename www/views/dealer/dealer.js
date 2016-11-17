@@ -6,6 +6,7 @@ angular.module('App').controller('DealerCtrl', function ($scope, $stateParams, A
     $scope.dealer = dealer;
   });
   APIService.dealers.getRatingById($stateParams.id).then(function(ratings) {
+    console.log("ratings",ratings);
     $scope.ratings = ratings;
     $scope.avgRating = calculateAvgRating(ratings);
 

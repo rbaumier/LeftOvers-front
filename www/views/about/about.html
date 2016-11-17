@@ -1,24 +1,19 @@
 <ion-view title="Leftovers">
-  <ion-content class="list-card">
-    <div class="item item-image about">
-      <img src="img/logo.png" alt="logo leftovers"/>
+  <ion-content>
+    <div class="jumbotron">
+      <img class="logo-small" src="img/logo.png" alt="logo leftovers"/>
+      <h1 class="white shadow">Minimiser les pertes, maximiser le goût !</h1>
     </div>
-    <div class="item item-body about">
-      <p>Minimiser les pertes, maximiser le goût !</p>
-    </div>
-    
-    <div class="card">
-      <div class="item item-divider about">
-          <p>Ils nous font confiance.</p>
-      </div>
-      <div ng-repeat="dealer in dealers" class="item item-text-wrap">
-        <div class="item item-image">
-          <img ng-src={{dealer.picture}}>
-        </div>
-        <a class="item brand" ui-sref="dealer({ id: dealer.id})">{{dealer.name}}</a>
-      </div>
-      <div class="item item-divider">
-        <p>Leftovers™</p>
+    <hr/>
+    <p class="bold white text-center bleu">Ils nous font confiance</p>  
+    <div ng-repeat="deal in dealers" class="card" ng-mouseenter="openHover(this)" ng-mouseleave="closeHover(this)">
+      <div class="item item-text-wrap deal-block" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url({{deal.picture}});background-size: cover;">
+        <span class="deal-img" ui-sref="dealer({ id: deal.id})">
+          <h2 class="bold shadow white">{{deal.name}}</h2>
+          <h3 class="bold shadow white">{{deal.description}}</h3>
+          <h4 class="bold shadow white">{{deal.email}}</h4>
+          <h4 class="bold shadow white">{{deal.phone}}</h4>
+        </span>
       </div>
     </div>
   </ion-content>
