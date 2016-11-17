@@ -4,12 +4,6 @@ angular.module('App', ['ionic', 'restangular', 'angular-storage'])
   $urlRouterProvider.when('/', '/deals');
 
   $stateProvider
-    .state('dealers', {
-      url: '/dealers',
-      templateUrl: 'views/dealers/dealers.html',
-      controller: 'DealersCtrl'
-    })
-
     .state('preferences', {
       url: '/preferences',
       templateUrl: 'views/preferences/preferences.html',
@@ -74,15 +68,26 @@ angular.module('App', ['ionic', 'restangular', 'angular-storage'])
   });
 })
 
-.controller('NavCtrl', function($scope, $ionicSideMenuDelegate) {
+.controller('NavbarCtrl', function($scope, $ionicSideMenuDelegate) {
   $scope.openMenu = function() {
     $ionicSideMenuDelegate.toggleLeft();
   };
 })
 
+.controller('NavCtrl', function($scope, store) {
+  var user = store.get('user');
+  if (!user) {
+    return;
+  }
+
+  $scope.isLogged = !!user;
+  $scope.isDealer = user.type === 'dealers';
+  $scope.isUser = user.type === 'users'
+})
+
 .config(function(RestangularProvider) {
-  RestangularProvider.setBaseUrl('http://leftovers.jlitaize.fr/api');
-  // RestangularProvider.setBaseUrl('http://l:3005/api');
+  // RestangularProvider.setBaseUrl('http://leftovers.jlitaize.fr/api');
+  RestangularProvider.setBaseUrl('http://l:3005/api');
   RestangularProvider.setFullRequestInterceptor(function(element, operation, route, url, headers, params, httpConfig, store) {
     var JSONUser = window.localStorage.getItem('user');
     if (JSONUser) {
@@ -134,18 +139,26 @@ angular.module('App', ['ionic', 'restangular', 'angular-storage'])
     },
     preferences: {
       get: function(userId) {
-        return Restangular.all('preferences').customGET('', { user_id: userId });
+        return Restangular.one('users', userId).customGET('preferences', {});
+      }
+    },
+    users: {
+      getById: function(id) {
+        return Restangular.one('users', id).get();
       }
     }
   };
 })
 
-.factory('AuthService', function(Restangular, APIService, store) {
+.factory('AuthService', function(Restangular, APIService, store, $q) {
   function login(credentials, shouldRedirect) {
     if (_.isUndefined(shouldRedirect)) {
       shouldRedirect = true; // redirect by default
     }
     return APIService.auth.login(credentials).then(function(user) {
+      if(user.success === false) {
+        return $q.reject(user.message);
+      }
       store.set('user', user);
       return shouldRedirect ? location.reload() : true;
     });

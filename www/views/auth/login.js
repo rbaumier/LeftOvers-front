@@ -5,7 +5,7 @@ angular.module('App').controller('LoginCtrl', function($scope, $state, APIServic
     AuthService.login(credentials).then(function(user) {
       $state.go('deals');
     }).catch(function(error) {
-      $scope.errors = errors;
+      $scope.errors = error;
     });
   }
 });
