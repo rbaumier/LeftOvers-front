@@ -74,7 +74,7 @@ angular.module('App', ['ionic', 'restangular', 'angular-storage'])
   });
 })
 
-.controller('NavbarCtrl', function($scope, $ionicSideMenuDelegate) {
+.controller('NavCtrl', function($scope, $ionicSideMenuDelegate) {
   $scope.openMenu = function() {
     $ionicSideMenuDelegate.toggleLeft();
   };
