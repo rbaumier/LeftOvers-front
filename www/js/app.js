@@ -98,6 +98,11 @@ angular.module('App', ['ionic', 'restangular', 'angular-storage'])
 
 .factory('APIService', function(Restangular) {
   return {
+    auth: {
+      login: function(credentials) {
+        return Restangular.all('login').post(credentials);
+      }
+    },
     dealers: {
       get: function() {
         return Restangular.all('dealers').getList();
