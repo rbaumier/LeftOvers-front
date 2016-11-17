@@ -82,6 +82,10 @@
   text-transform: uppercase;
 }
 
+.bold-pourromaincegroscon{
+  font-weight: bold;
+}
+
 .shadow{
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 }
@@ -101,6 +105,7 @@
     float: right;
     position: absolute;
     right: 10px;
+    top: 10px;
 }
 
 .row{
@@ -129,6 +134,12 @@
   width: 31%;
 }
 
+.deal-name{
+  margin-left: 20px;
+  margin-top: -15px;
+  margin-bottom: 10px;
+}
+
 .offers-body{
   width: 95%;
   max-width: 1000px;
@@ -141,6 +152,10 @@
   margin-left: auto;
 }
 
+.text-center{
+  text-align: center;
+}
+
 .brand{
   text-align: center;
 }
@@ -149,9 +164,17 @@
   max-width: 500px;
 }
 
+.ml-20{
+  margin-left: 20px;
+}
+
 .rose{
   border-color: #00ccbc !important;
   background-color: #F06292 !important;
+}
+
+.text-rose{
+  color: #F06292;
 }
 
 .bleu{

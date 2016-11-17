@@ -9,24 +9,26 @@
     	<input id="searchBar" placeholder="Recherche une offre..." ng-model="searchText">
     </div>
     <div class="offers-body center">
-	    <div ng-repeat="deal in deals | filter:searchText" class="card" ng-mouseenter="openHover(this)" ng-mouseleave="closeHover(this)">
-	    {{deal}}
-	      <div class="item item-text-wrap deal-block" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../../img/dealers/1.jpg);background-size: cover;">
+	    <div ng-repeat="deal in deals | filter:searchText" class="card" ng-mouseenter="openHover(this)" ng-mouseleave="closeHover(this)">	    
+	      <div class="item item-text-wrap deal-block" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url({{deal.dealer.picture}});background-size: cover;">
 	      	<span class="deal-img">
 		      	<h2 class="bold shadow white">{{deal.title}}</h2>
-		      	<h3 class="bold shadow white">{{deal.description}}</h3>
+		      	<h3 class="shadow white">{{deal.description}}</h3>
 	      	</span>
 	      </div>
 	      <div>
-		  	<span class="row">
+		  	<div class="row">
 		  		<span class="badge-price white">{{ deal.full_price * (1 - deal.promotion) | number:2}}€</span>
 		  		<span class="promotion-text">-{{ deal.promotion * 100 | number:0}}%</span>
+		  		<span class="bold-pourromaincegroscon ml-20 text-rose">x{{deal.quantity}}</span>
 		  	<span class="right">
 		  		<div>de : {{deal.start_date | date : "hh:mm"}}</div>
 		  		<div>à : {{deal.end_date | date : "hh:mm"}}</div>
 		  	</span>
-		  	</span>
-		  </div>
+		  	</div>
+		  	<div class="deal-name">
+		  		<span class="bold text-rose">{{deal.dealer.name}}</span>
+		  	</div>
 	    </div>
     </div>
   </ion-content>
